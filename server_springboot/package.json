@@ -1,0 +1,15 @@
+{
+  "name": "@jbwittner/wow-companion-springboot-server",
+  "scripts": {
+    "generate": "openapi-generator-cli generate -i ../openapi.yaml -g spring --library=spring-boot --api-package=fr.myhome.openapi.api --additional-properties=groupId=fr.myhome --additional-properties=artifactId=openapi --model-package=fr.myhome.openapi.model --additional-properties=interfaceOnly=true --additional-properties=dateLibrary=java8 --additional-properties=hideGenerationTimestamp=true",
+    "postgenerate" : "rimraf .openapi-generator-ignore && rimraf .gitignore && rimraf .openapi-generator && rimraf openapitools.json", 
+    "clean": "rimraf target",
+    "delete": "npm run clean && rimraf src && rimraf pom.xml && rimraf README.md",
+    "build": "mvn package",
+    "deploy": "mvn deploy -DaltDeploymentRepository=github::default::https://maven.pkg.github.com/jbwittner/my_home_openapi"
+  },
+  "devDependencies": {
+      "@openapitools/openapi-generator-cli": "^2.3.2",
+      "rimraf": "^3.0.2"
+  }
+}
