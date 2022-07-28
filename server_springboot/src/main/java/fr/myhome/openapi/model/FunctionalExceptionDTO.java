@@ -17,11 +17,14 @@ import java.util.*;
 import javax.annotation.Generated;
 
 /**
- * ExceptionDTO
+ * FunctionalExceptionDTO
  */
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
-public class ExceptionDTO   {
+public class FunctionalExceptionDTO {
+
+  @JsonProperty("status")
+  private Integer status;
 
   @JsonProperty("details")
   private String details;
@@ -36,7 +39,26 @@ public class ExceptionDTO   {
   @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime timestamp;
 
-  public ExceptionDTO details(String details) {
+  public FunctionalExceptionDTO status(Integer status) {
+    this.status = status;
+    return this;
+  }
+
+  /**
+   * Get status
+   * @return status
+  */
+  @NotNull 
+  @Schema(name = "status", required = true)
+  public Integer getStatus() {
+    return status;
+  }
+
+  public void setStatus(Integer status) {
+    this.status = status;
+  }
+
+  public FunctionalExceptionDTO details(String details) {
     this.details = details;
     return this;
   }
@@ -55,7 +77,7 @@ public class ExceptionDTO   {
     this.details = details;
   }
 
-  public ExceptionDTO exception(String exception) {
+  public FunctionalExceptionDTO exception(String exception) {
     this.exception = exception;
     return this;
   }
@@ -74,7 +96,7 @@ public class ExceptionDTO   {
     this.exception = exception;
   }
 
-  public ExceptionDTO message(String message) {
+  public FunctionalExceptionDTO message(String message) {
     this.message = message;
     return this;
   }
@@ -93,7 +115,7 @@ public class ExceptionDTO   {
     this.message = message;
   }
 
-  public ExceptionDTO timestamp(OffsetDateTime timestamp) {
+  public FunctionalExceptionDTO timestamp(OffsetDateTime timestamp) {
     this.timestamp = timestamp;
     return this;
   }
@@ -120,22 +142,24 @@ public class ExceptionDTO   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ExceptionDTO exceptionDTO = (ExceptionDTO) o;
-    return Objects.equals(this.details, exceptionDTO.details) &&
-        Objects.equals(this.exception, exceptionDTO.exception) &&
-        Objects.equals(this.message, exceptionDTO.message) &&
-        Objects.equals(this.timestamp, exceptionDTO.timestamp);
+    FunctionalExceptionDTO functionalExceptionDTO = (FunctionalExceptionDTO) o;
+    return Objects.equals(this.status, functionalExceptionDTO.status) &&
+        Objects.equals(this.details, functionalExceptionDTO.details) &&
+        Objects.equals(this.exception, functionalExceptionDTO.exception) &&
+        Objects.equals(this.message, functionalExceptionDTO.message) &&
+        Objects.equals(this.timestamp, functionalExceptionDTO.timestamp);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(details, exception, message, timestamp);
+    return Objects.hash(status, details, exception, message, timestamp);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ExceptionDTO {\n");
+    sb.append("class FunctionalExceptionDTO {\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    details: ").append(toIndentedString(details)).append("\n");
     sb.append("    exception: ").append(toIndentedString(exception)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");

@@ -1,5 +1,3 @@
-export * from './exception-dto';
-export * from './login-parameter';
-export * from './user-dto';
+export * from './functional-exception-dto';
+export * from './method-argument-not-valid-exception-dto';
 export * from './user-registration-parameter';
-export * from './user-role-enum';

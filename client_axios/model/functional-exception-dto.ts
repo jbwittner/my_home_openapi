@@ -17,38 +17,38 @@
 /**
  * 
  * @export
- * @interface UserRegistrationParameter
+ * @interface FunctionalExceptionDTO
  */
-export interface UserRegistrationParameter {
+export interface FunctionalExceptionDTO {
+    /**
+     * 
+     * @type {number}
+     * @memberof FunctionalExceptionDTO
+     */
+    'status': number;
     /**
      * 
      * @type {string}
-     * @memberof UserRegistrationParameter
+     * @memberof FunctionalExceptionDTO
      */
-    'username': string;
+    'details': string;
     /**
      * 
      * @type {string}
-     * @memberof UserRegistrationParameter
+     * @memberof FunctionalExceptionDTO
      */
-    'email': string;
+    'exception': string;
     /**
      * 
      * @type {string}
-     * @memberof UserRegistrationParameter
+     * @memberof FunctionalExceptionDTO
      */
-    'firstName': string;
+    'message': string;
     /**
      * 
      * @type {string}
-     * @memberof UserRegistrationParameter
+     * @memberof FunctionalExceptionDTO
      */
-    'lastName': string;
-    /**
-     * 
-     * @type {string}
-     * @memberof UserRegistrationParameter
-     */
-    'password': string;
+    'timestamp': string;
 }
 

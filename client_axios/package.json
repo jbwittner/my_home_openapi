@@ -10,7 +10,8 @@
     "clean": "rimraf dist",
     "delete": "npm run clean && rimraf *.ts && rimraf .npmignore",
     "build": "tsc",
-    "deploy": "npm publish"
+    "deploy": "npm publish",
+    "all": "npm ci && npm run delete && npm run generate && npm run build"
   },
   "author": "WITTNER Jean-Baptiste",
   "license": "ISC",
