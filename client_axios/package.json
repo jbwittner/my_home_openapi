@@ -1,6 +1,6 @@
 {
   "name": "@jbwittner/my-home-axios-client",
-  "version": "0.1.0",
+  "version": "0.2.0-SNAPSHOT",
   "description": "The axios client for My Home application",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -10,7 +10,8 @@
     "clean": "rimraf dist",
     "delete": "npm run clean && rimraf *.ts && rimraf .npmignore",
     "build": "tsc",
-    "deploy": "npm publish"
+    "deploy": "npm publish",
+    "all": "npm ci && npm run delete && npm run generate && npm run build"
   },
   "author": "WITTNER Jean-Baptiste",
   "license": "ISC",

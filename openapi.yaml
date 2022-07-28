@@ -7,22 +7,22 @@ info:
   license:
     name: GPL-3.0 License
     url: 'https://www.gnu.org/licenses/gpl-3.0.html'
-  version: 0.1.0
+  version: 0.2.0-SNAPSHOT
 externalDocs:
   description: Find out more about Swagger
   url: 'https://swagger.io'
 servers:
-  - url: 'http://localhost:6080/api'
+  - url: 'http://localhost:7080/api'
 tags:
-  - name: security
-    description: Management of security
+  - name: Authentication
+    description: Management of authentication
 paths:
 #  ----- PATHS  ---------------------------------------------
 #  ----- AUTHENTICATION  ------------------------------------
   /authentication/registration:
     put:
       tags:
-        - security
+        - Authentication
       summary: Register a new user account
       operationId: registration
       security: []
@@ -38,9 +38,11 @@ paths:
 #  ----- AUTHENTICATION  ------------------------------------
 components:
   schemas:
-    ExceptionDTO:
+    FunctionalExceptionDTO:
       type: object
       properties:
+        status:
+          type: integer
         details:
           type: string
         exception:
@@ -51,26 +53,38 @@ components:
           type: string
           format: date-time
       required:
+        - status
         - details
         - exception
         - message
         - timestamp
-#  ----- PARAMETERS  ----------------------------------------
-    LoginParameter:
+    MethodArgumentNotValidExceptionDTO:
       type: object
       properties:
-        username:
+        status:
+          type: integer
+        details:
           type: string
-        password:
+        exception:
           type: string
-          format: password
-          writeOnly: true
-        rememberMe:
-          type: boolean
+        message:
+          type: string
+        timestamp:
+          type: string
+          format: date-time
+        field:
+          type: string
+        objectName:
+          type: string
       required:
-        - username
-        - password
-        - rememberMe
+        - status
+        - details
+        - exception
+        - message
+        - timestamp
+        - field
+        - objectName
+#  ----- PARAMETERS  ----------------------------------------
     UserRegistrationParameter:
       type: object
       properties:
@@ -96,32 +110,6 @@ components:
         - password
 #  ----- PARAMETERS  ----------------------------------------
 #  ----- DTO  -----------------------------------------------
-    UserDTO:
-      type: object
-      properties:
-        username:
-          type: string
-        email:
-          type: string
-          format: email
-        firstName:
-          type: string
-        lastName:
-          type: string
-        roles:
-          type: array
-          items:
-            $ref: '#/components/schemas/UserRoleEnum'
-      required:
-        - username
-        - email
-        - firstName
-        - lastName
-        - roles
 #  ----- DTO  -----------------------------------------------
 #  ----- Enum -----------------------------------------------
-    UserRoleEnum:
-      type: string
-      enum:
-        - ADMIN
-        - USER
+#  ----- Enum -----------------------------------------------
